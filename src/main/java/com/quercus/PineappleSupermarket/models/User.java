@@ -21,7 +21,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(unique = true)
     private String username;
@@ -33,21 +33,20 @@ public class User {
     
     private Timestamp creationDate;
 
-    
-    // MAPEO RARO - REVISAR
-    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    
     public User() {
     }
 
-    public User(String username, String password, String email, String name, String lastName, Timestamp creationDate,
-			Set<Role> roles) {
+	public User(Long id, String username, String password, String email, String name, String lastName,
+			Timestamp creationDate, Set<Role> roles) {
 		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
@@ -57,14 +56,10 @@ public class User {
 		this.roles = roles;
 	}
 
-	public int getId() {
+	public Long getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+ 
     public String getUsername() {
         return username;
     }
@@ -120,4 +115,5 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    
 }

@@ -1,4 +1,4 @@
-package com.quercus.PineappleSupermarket.models;
+package com.quercus.PineappleSupermarket.enums;
 
 public enum ERole {
     ROLE_VIEWER,

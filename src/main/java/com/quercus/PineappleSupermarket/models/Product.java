@@ -1,20 +1,28 @@
 package com.quercus.PineappleSupermarket.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="product")
 public class Product {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private Long id;
 	
 	@Column(length = 20)
 	private String name;
 	
-	// Aca hacer el mapeo con category -> OneToMany/ManyToOne
+	@ManyToOne
+    @JoinColumn(name = "category_id")
 	private Category category;
 	
 	private String description;
@@ -24,11 +32,13 @@ public class Product {
 	private String picture;
 
 	public Product() {
-		super();
 	}
 
-	public Product(String name, Category category, String description, int quantity, float price, String picture) {
+
+	public Product(Long id, String name, Category category, String description, int quantity, float price,
+			String picture) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.description = description;
@@ -37,12 +47,9 @@ public class Product {
 		this.picture = picture;
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public String getName() {
