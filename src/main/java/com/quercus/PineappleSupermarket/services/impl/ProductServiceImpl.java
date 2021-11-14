@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.quercus.PineappleSupermarket.models.Product;
+import com.quercus.PineappleSupermarket.repositories.CategoryRepository;
 import com.quercus.PineappleSupermarket.repositories.ProductRepository;
 import com.quercus.PineappleSupermarket.services.IProductService;
 
@@ -15,6 +16,9 @@ public class ProductServiceImpl implements IProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	@Override
 	public List<Product> findAll() {

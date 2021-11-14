@@ -1,6 +1,7 @@
 package com.quercus.PineappleSupermarket.models;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name="user")
@@ -23,15 +29,26 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(unique = true)
     private String username;
     
-    private String password;    
+    @NotNull
+    private String password;
+    
+    @NotNull
+    @Email
     private String email;
+    
+    @NotNull
     private String name;
+    
+    @NotNull
     private String lastName;
     
-    private Timestamp creationDate;
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_role",
@@ -41,18 +58,18 @@ public class User {
 
     
     public User() {
+    	this.creationDate = new Timestamp(System.currentTimeMillis());
     }
 
 	public User(Long id, String username, String password, String email, String name, String lastName,
 			Timestamp creationDate, Set<Role> roles) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.name = name;
 		this.lastName = lastName;
-		this.creationDate = creationDate;
+		this.creationDate = new Timestamp(System.currentTimeMillis());;
 		this.roles = roles;
 	}
 
@@ -60,7 +77,11 @@ public class User {
         return id;
     }
  
-    public String getUsername() {
+    public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
         return username;
     }
 
@@ -100,11 +121,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Timestamp getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Timestamp creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 

@@ -2,13 +2,15 @@ package com.quercus.PineappleSupermarket.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="product")
@@ -18,17 +20,24 @@ public class Product {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 	
+	@NotNull
 	@Column(length = 20)
 	private String name;
 	
 	@ManyToOne
+	@JsonManagedReference
     @JoinColumn(name = "category_id")
 	private Category category;
 	
 	private String description;
+	
+	@NotNull
 	private int quantity;
+	
+	@NotNull
 	private float price;
 	
+	@NotNull
 	private String picture;
 
 	public Product() {
@@ -38,7 +47,6 @@ public class Product {
 	public Product(Long id, String name, Category category, String description, int quantity, float price,
 			String picture) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.description = description;
@@ -50,6 +58,10 @@ public class Product {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
