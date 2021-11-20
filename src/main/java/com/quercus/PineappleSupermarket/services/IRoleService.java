@@ -11,4 +11,5 @@ import com.quercus.PineappleSupermarket.models.Role;
 public interface IRoleService {
 	
 	public Optional<Role> findByName(ERole name);
+	
 }
