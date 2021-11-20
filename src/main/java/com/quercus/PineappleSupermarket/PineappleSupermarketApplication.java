@@ -26,13 +26,18 @@ public class PineappleSupermarketApplication {
 
 		@PostConstruct
 		public void init() {
-			Role adminRole = new Role();
-			adminRole.setName(ERole.ROLE_ADMIN);
-			roleRepository.save(adminRole);
-
-			Role userRole = new Role();
-			userRole.setName(ERole.ROLE_VIEWER);
-			roleRepository.save(userRole);
+			Role role = new Role();
+	
+			if(roleRepository.findByName(ERole.ROLE_ADMIN).isEmpty()) {
+				role.setName(ERole.ROLE_ADMIN);
+				roleRepository.save(role);
+			}
+			
+			role = new Role();
+			if(roleRepository.findByName(ERole.ROLE_VIEWER).isEmpty()) {
+				role.setName(ERole.ROLE_VIEWER);
+				roleRepository.save(role);
+			}
 		}
 	}
 }

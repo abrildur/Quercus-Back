@@ -32,7 +32,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	}
 
 	@Override
-	public Category save(Category category) {
+	public Category saveCategory(Category category) {
 		return categoryRepository.save(category);
 	}
 
