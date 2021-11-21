@@ -16,26 +16,23 @@ import com.quercus.PineappleSupermarket.enums.ERole;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private ERole name;
 
     public Role() {}
-
-    public Role(Long id, ERole name) {
+   
+	public Role(int id, ERole name) {
 		super();
+		this.id = id;
 		this.name = name;
 	}
 
-	public Long getId() {
+	public int getId() {
         return id;
     }
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
 
     public ERole getName() {
         return name;
