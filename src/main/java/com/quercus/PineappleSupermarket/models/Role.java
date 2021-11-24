@@ -9,33 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.quercus.PineappleSupermarket.enums.ERole;
+
 
 @Entity
 @Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, unique = true)
     private ERole name;
 
     public Role() {}
-
-    public Role(Long id, ERole name) {
+   
+	public Role(Integer id, ERole name) {
 		super();
+		this.id = id;
 		this.name = name;
 	}
 
-	public Long getId() {
+	public Integer getId() {
         return id;
     }
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
 
     public ERole getName() {
         return name;

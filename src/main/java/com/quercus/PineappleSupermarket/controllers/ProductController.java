@@ -37,7 +37,7 @@ import com.quercus.PineappleSupermarket.services.IProductService;
 import com.quercus.PineappleSupermarket.services.mapper.MapperUtil;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 public class ProductController {
 
 	@Autowired

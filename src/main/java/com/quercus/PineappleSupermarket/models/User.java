@@ -19,7 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
+ 
 
 @Entity
 @Table(name="user")
@@ -27,7 +27,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private int id;
 
     @NotNull
     @Column(unique = true)
@@ -55,49 +55,68 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
+    
     
     public User() {
     	this.creationDate = new Timestamp(System.currentTimeMillis());
     }
 
-	public User(Long id, String username, String password, String email, String name, String lastName,
-			Timestamp creationDate, Set<Role> roles) {
+
+
+
+	public User(int id, @NotNull String username, @NotNull String password, @NotNull @Email String email,
+			@NotNull String name, @NotNull String lastName, @NotNull Timestamp  creationDate, Set<Role> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.name = name;
+		this.lastName = lastName;
+		this.creationDate = new Timestamp(System.currentTimeMillis());
+		this.roles = roles;
+	}
+	
+
+
+	public User(@NotNull String username, @NotNull String password, @NotNull @Email String email, @NotNull String name,
+			@NotNull String lastName) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.name = name;
 		this.lastName = lastName;
-		this.creationDate = new Timestamp(System.currentTimeMillis());;
-		this.roles = roles;
 	}
 
-	public Long getId() {
-        return id;
-    }
- 
-    public void setId(Long id) {
+
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getUsername() {
-        return username;
-    }
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -130,11 +149,13 @@ public class User {
 	}
 
 	public Set<Role> getRoles() {
-        return roles;
-    }
+		return roles;
+	}
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	
     
 }
