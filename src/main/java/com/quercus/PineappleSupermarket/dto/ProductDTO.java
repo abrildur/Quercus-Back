@@ -1,6 +1,5 @@
 package com.quercus.PineappleSupermarket.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class ProductDTO {
 
