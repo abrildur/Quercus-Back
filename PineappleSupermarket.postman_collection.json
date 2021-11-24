@@ -1,0 +1,427 @@
+{
+	"info": {
+		"_postman_id": "2aa5e22f-cc6d-4c4f-8e95-35bab4db8cdc",
+		"name": "PineappleSupermarket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "guardar categoría",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category/save/Fruits and Vegetables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"save",
+						"Fruits and Vegetables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardar producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Manzana",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Fruits and Vegetables",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Manzanas jugosas",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "15.0",
+							"type": "text"
+						},
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/D:/Desktop/IBM SkillsBuild/proyecto/assets/Manzana.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar producto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Manzana",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Fruits and Vegetables",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Manzanas jugosas",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "15.7",
+							"type": "text"
+						},
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/D:/Desktop/IBM SkillsBuild/proyecto/assets/Manzana.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar categoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Manzana",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Fruits and Vegetables",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Manzanas jugosas",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "15.7",
+							"type": "text"
+						},
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/D:/Desktop/IBM SkillsBuild/proyecto/assets/Manzana.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar productos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar categoria",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtrar por nombre de producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "listar productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar categorías",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar productos por id de categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/list/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por nombre asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por nombre desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por precio asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/order/price/asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"order",
+						"price",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por precio desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/order/price/asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"order",
+						"price",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por cantidad asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Ordenar productos por cantidad desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
