@@ -10,13 +10,13 @@ import com.quercus.PineappleSupermarket.models.Product;
 @Service
 public interface IProductService {
 	
-	public List<Product> findAll();
-	
 	public Product saveProduct(Product product);
 	
-	public Optional<Product> findById(Long id);
-	
 	public void deleteProduct(Long id);
+	
+	public List<Product> findAll();
+	
+	public Optional<Product> findById(Long id);
 	
 	public Optional<Product> findByName(String name);
 	
@@ -25,4 +25,18 @@ public interface IProductService {
 	public Optional<Product> findByQuantity(int quantity);
 	
 	public List<Product> findByCategory_id(Long id);
+	
+	public List<Product> findByNameContaining(String infix);
+	
+	public List<Product> findAllByOrderByNameAsc();
+	
+	public List<Product> findAllByOrderByNameDesc();
+	
+	public List<Product> findAllByOrderByPriceAsc();
+	
+	public List<Product> findAllByOrderByPriceDesc();
+	
+	public List<Product> findAllByOrderByQuantityAsc();
+	
+	public List<Product> findAllByOrderByQuantityDesc();
 }

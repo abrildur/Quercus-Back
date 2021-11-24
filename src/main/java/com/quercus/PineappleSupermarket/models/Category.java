@@ -68,4 +68,8 @@ public class Category {
 		product.setCategory(this);
 		this.products.add(product);
 	}
+	
+	public void deleteProduct(Product product) {
+		this.products.remove(product);
+	}
 }

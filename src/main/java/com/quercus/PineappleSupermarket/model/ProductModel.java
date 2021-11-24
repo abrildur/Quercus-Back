@@ -2,6 +2,8 @@ package com.quercus.PineappleSupermarket.model;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ProductModel {
@@ -32,7 +34,7 @@ public class ProductModel {
 	
 	@JsonProperty("picture")
 	@NotNull
-	private String picture;
+	private MultipartFile picture;
 
 	public Long getId() {
 		return id;
@@ -82,11 +84,11 @@ public class ProductModel {
 		this.price = price;
 	}
 
-	public String getPicture() {
+	public MultipartFile getPicture() {
 		return picture;
 	}
 
-	public void setPicture(String picture) {
+	public void setPicture(MultipartFile picture) {
 		this.picture = picture;
 	}
 	

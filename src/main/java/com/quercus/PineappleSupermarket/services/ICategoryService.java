@@ -17,4 +17,6 @@ public interface ICategoryService {
 	public Optional<Category> findByName(String name);
 	
 	public Category saveCategory(Category category);
+	
+	public void deleteCategory(Long id) throws Exception;
 }

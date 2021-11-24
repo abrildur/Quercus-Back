@@ -36,4 +36,19 @@ public class CategoryServiceImpl implements ICategoryService {
 		return categoryRepository.save(category);
 	}
 
+	@Override
+	public void deleteCategory(Long id) throws Exception {
+		Optional<Category> cat = categoryRepository.findById(id);
+		
+		if(cat.isEmpty()) {
+			throw new Exception("ERROR. Category does not exist");
+		}
+		
+		if(!cat.get().getProducts().isEmpty()) {
+			throw new Exception("ERROR. No product should be assigned to this category to remove it");
+		}
+		
+		categoryRepository.deleteById(id);
+	}
+
 }
