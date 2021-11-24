@@ -19,8 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-
+ 
 
 @Entity
 @Table(name="user")
@@ -66,7 +65,7 @@ public class User {
 
 
 	public User(int id, @NotNull String username, @NotNull String password, @NotNull @Email String email,
-			@NotNull String name, @NotNull String lastName, @NotNull Date creationDate, Set<Role> roles) {
+			@NotNull String name, @NotNull String lastName, @NotNull Timestamp  creationDate, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -74,9 +73,23 @@ public class User {
 		this.email = email;
 		this.name = name;
 		this.lastName = lastName;
-		this.creationDate = creationDate;
+		this.creationDate = new Timestamp(System.currentTimeMillis());
 		this.roles = roles;
 	}
+	
+
+
+	public User(@NotNull String username, @NotNull String password, @NotNull @Email String email, @NotNull String name,
+			@NotNull String lastName) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.name = name;
+		this.lastName = lastName;
+	}
+
+
 
 
 	public int getId() {
