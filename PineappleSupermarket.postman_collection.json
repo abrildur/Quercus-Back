@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "2aa5e22f-cc6d-4c4f-8e95-35bab4db8cdc",
+		"_postman_id": "27aa8c85-76ff-4db0-a3e9-dc8bae00630c",
 		"name": "PineappleSupermarket",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "guardar categoría",
+			"name": "autenticar-admin",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -19,7 +19,44 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n\t\"username\":\"john\",\r\n\t\"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "autenticar-viewer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\":\"genericUser\",\r\n\t\"password\":\"1234567\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,8 +80,66 @@
 			"response": []
 		},
 		{
+			"name": "guardar categoría",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZW5lcmljVXNlciIsImlhdCI6MTYzNzc5NDYwNywiZXhwIjoxNjM3ODgxMDA3fQ.jUPQgennLjNJJWvReIxPw8BLcIbxUXQ-PcdApHudFPorMvS0q_EKo3DuJ5S5MW-ZeUOU2y-JHXoJSTHjT7YUFQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category/save/milk4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category",
+						"save",
+						"milk4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "guardar producto",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjM3Nzk0NTYzLCJleHAiOjE2Mzc4ODA5NjN9.pbO26RzVuzam0tG-LPf2f3NyQ1FGKPNtW8ZzH7MSrGEq0k2CbIG4KIeOq6pVl8ql48tIqqm9Kz4eMpyDe1Q1IA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -57,7 +152,7 @@
 						},
 						{
 							"key": "category",
-							"value": "Fruits and Vegetables",
+							"value": "Fruits",
 							"type": "text"
 						},
 						{
@@ -78,18 +173,19 @@
 						{
 							"key": "picture",
 							"type": "file",
-							"src": "/D:/Desktop/IBM SkillsBuild/proyecto/assets/Manzana.jpg"
+							"src": "/C:/Users/Equipo/Downloads/bcp.jpeg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/product/save",
+					"raw": "http://localhost:8080/api/product/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"save"
 					]
@@ -150,13 +246,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/product/update",
+					"raw": "http://localhost:8080/api/product/update",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"update"
 					]
@@ -217,13 +314,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/product/update",
+					"raw": "http://localhost:8080/api/product/update",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"update"
 					]
@@ -237,13 +335,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/product/delete/3",
+					"raw": "http://localhost:8080/api/product/delete/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"delete",
 						"3"
@@ -258,13 +357,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/product/delete/3",
+					"raw": "http://localhost:8080/api/product/delete/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"delete",
 						"3"
@@ -278,7 +378,25 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/product/filter?str=nana\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "str",
+							"value": "nana\n"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -288,13 +406,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/product/list",
+					"raw": "http://localhost:8080/api/product/list",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"list"
 					]
@@ -305,16 +424,27 @@
 		{
 			"name": "listar categorías",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjM3Nzk0NTYzLCJleHAiOjE2Mzc4ODA5NjN9.pbO26RzVuzam0tG-LPf2f3NyQ1FGKPNtW8ZzH7MSrGEq0k2CbIG4KIeOq6pVl8ql48tIqqm9Kz4eMpyDe1Q1IA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/category/list",
+					"raw": "http://localhost:8080/api/category/list",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"category",
 						"list"
 					]
@@ -328,13 +458,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/category/list/1",
+					"raw": "http://localhost:8080/api/category/list/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"category",
 						"list",
 						"1"
@@ -348,16 +479,54 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/product/order/name/asc\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"order",
+						"name",
+						"asc\n"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Ordenar productos por nombre desc",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNjM3Nzk0NTYzLCJleHAiOjE2Mzc4ODA5NjN9.pbO26RzVuzam0tG-LPf2f3NyQ1FGKPNtW8ZzH7MSrGEq0k2CbIG4KIeOq6pVl8ql48tIqqm9Kz4eMpyDe1Q1IA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/product/order/name/desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"order",
+						"name",
+						"desc"
+					]
+				}
 			},
 			"response": []
 		},
@@ -367,13 +536,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/product/order/price/asc",
+					"raw": "http://localhost:8080/api/product/order/price/asc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"order",
 						"price",
@@ -389,13 +559,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/product/order/price/asc",
+					"raw": "http://localhost:8080/api/product/order/price/asc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"product",
 						"order",
 						"price",
@@ -410,7 +581,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/product/order/quantity/asc\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"order",
+						"quantity",
+						"asc\n"
+					]
+				}
 			},
 			"response": []
 		},
@@ -419,7 +604,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/product/order/quantity/desc\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"product",
+						"order",
+						"quantity",
+						"desc\n"
+					]
+				}
 			},
 			"response": []
 		}

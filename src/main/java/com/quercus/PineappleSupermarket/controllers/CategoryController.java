@@ -26,7 +26,7 @@ import com.quercus.PineappleSupermarket.services.mapper.MapperUtil;
 import javassist.NotFoundException;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/category")
 public class CategoryController {
 	
 	@Autowired
