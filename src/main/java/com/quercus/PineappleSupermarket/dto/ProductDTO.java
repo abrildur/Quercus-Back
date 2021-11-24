@@ -1,48 +1,39 @@
-package com.quercus.PineappleSupermarket.models;
+package com.quercus.PineappleSupermarket.dto;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+public class ProductDTO {
 
-
-@Entity
-@Table(name="product")
-public class Product {
+	private Long id;
 	
-	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-	
-	@Column(length = 128, nullable = false, unique = true)
 	private String name;
 	
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-	private Category category;
+	private String category;
 	
 	private String description;
 	
-	@NotNull
 	private int quantity;
 	
-	@NotNull
 	private float price;
 	
-	@NotNull
 	private String picture;
 
-	
-	public Product() {
+	public ProductDTO() {
+		super();
 	}
 
-	public Product(String name, Category category, String description, int quantity, float price,
+	public ProductDTO(Long id, String name, String category, String description, int quantity, float price,
+			String picture) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+		this.picture = picture;
+	}
+	
+	public ProductDTO(String name, String category, String description, int quantity, float price,
 			String picture) {
 		super();
 		this.name = name;
@@ -52,7 +43,6 @@ public class Product {
 		this.price = price;
 		this.picture = picture;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -70,11 +60,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
@@ -109,6 +99,4 @@ public class Product {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	
-	
 }

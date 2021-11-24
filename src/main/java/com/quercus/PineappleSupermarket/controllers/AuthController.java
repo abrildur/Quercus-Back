@@ -75,49 +75,7 @@ public class AuthController {
 
     }
 
-//    @PostMapping("/signup")
-//    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-//        if (userService.existsByUsername(signUpRequest.getUsername())) {
-//            return ResponseEntity
-//                    .badRequest()
-//                    .body("Error: Usuario ya existente!");
-//        }
 
-        // Create new user's account
-//        User user = new User(signUpRequest.getUsername(),
-//                encoder.encode(signUpRequest.getPassword()));
-//
-//        Set<String> strRoles = signUpRequest.getRole();
-//        Set<Role> roles = new HashSet<>();
-//
-//        System.out.println(strRoles);
-//
-//        if (strRoles == null) {
-//            Role userRole = roleService.findByName(ERole.ROLE_VIEWER)
-//                    .orElseThrow(() -> new RuntimeException("Error: No se encuentra dicho Rol."));
-//            roles.add(userRole);
-//        } else {
-//            strRoles.forEach(role -> {
-//                switch (role) {
-//                    case "admin":
-//                        Role adminRole = roleService.findByName(ERole.ROLE_ADMIN)
-//                                .orElseThrow(() -> new RuntimeException("Error: No se encuentra dicho Rol."));
-//                        roles.add(adminRole);
-//
-//                        break;
-//                    default:
-//                        Role userRole = roleService.findByName(ERole.ROLE_VIEWER)
-//                                .orElseThrow(() -> new RuntimeException("Error: No se encuentra dicho Rol."));
-//                        roles.add(userRole);
-//                }
-//            });
-//        }
-//
-//        user.setRoles(roles);
-//        userService.save(user);
-//
-//        return ResponseEntity.ok("Usuario Registrado!");
-//    }
 
 	
 }

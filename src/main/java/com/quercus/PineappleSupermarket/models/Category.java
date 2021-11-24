@@ -1,18 +1,16 @@
 package com.quercus.PineappleSupermarket.models;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "category")
@@ -21,15 +19,19 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-	@NotNull
-    @Column(length = 20)
+    @Column(length = 50, unique = true, nullable = false)
     private String name;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Product> products;
+    @OneToMany
+    @JoinColumn(name = "category_id")
+    private List<Product> products = new ArrayList<>();
+    
     
 	public Category() {
+	}
+	
+	public Category(String name) {
+		this.name = name;
 	}
 
 	public Category(Long id, String name, List<Product> products) {
@@ -60,5 +62,14 @@ public class Category {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	
+	public void addProducts(Product product) {
+		product.setCategory(this);
+		this.products.add(product);
+	}
+	
+	public void deleteProduct(Product product) {
+		this.products.remove(product);
 	}
 }
