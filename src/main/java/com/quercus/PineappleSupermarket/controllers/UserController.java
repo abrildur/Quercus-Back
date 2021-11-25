@@ -1,7 +1,6 @@
 package com.quercus.PineappleSupermarket.controllers;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -9,14 +8,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quercus.PineappleSupermarket.services.RoleService;
-import com.saboritech.restaurantapi.models.Orden;
 import com.quercus.PineappleSupermarket.models.ERole;
 import com.quercus.PineappleSupermarket.models.Role;
 import com.quercus.PineappleSupermarket.models.User;

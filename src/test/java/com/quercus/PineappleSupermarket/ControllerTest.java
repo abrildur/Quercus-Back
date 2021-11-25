@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.quercus.PineappleSupermarket.controllers.CategoryController;
 
-@SpringBootTest
+@SpringBootTest(classes = ControllerTest.class)
 class ControllerTest {
 
 	@Autowired
